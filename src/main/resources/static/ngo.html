@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="navbar">NGO Dashboard</div>
+
+<div class="card">
+  <input id="city" placeholder="Enter your city">
+  <button onclick="load()">Load Donations</button>
+</div>
+
+<div id="list"></div>
+
+<script>
+function load() {
+  let city = document.getElementById("city").value;
+
+  fetch("/donations")
+    .then(res => res.json())
+    .then(data => {
+      console.log(data); 
+
+      document.getElementById("list").innerHTML = "";
+
+      let filtered = data.filter(d => 
+        d.location &&
+        d.location.toLowerCase().trim() === city.toLowerCase().trim()
+      );
+
+      if (filtered.length === 0) {
+        list.innerHTML = "<p style='color:white;text-align:center;'>No donations found</p>";
+        return;
+      }
+
+      filtered.forEach(d => {
+        list.innerHTML += `
+        <div class="card">
+          <h3>${d.food}</h3>
+          <p>Qty: ${d.quantity}</p>
+          <p>Location: ${d.location}</p>
+          <p>Status: ${d.status}</p>
+          <button onclick="accept(${d.id})">Accept</button>
+        </div>`;
+      });
+    });
+}
+
+function accept(id) {
+  fetch("/accept/" + id, {
+    method: "POST"
+  }).then(() => load());
+}
+</script>
+
+</body>
+</html>

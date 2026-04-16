@@ -1,0 +1,125 @@
+/* 🌍 Global Styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #0f2027, #2c5364);
+  color: white;
+}
+
+/*  Navbar */
+.navbar {
+  text-align: center;
+  padding: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+/* 📦 Card Design */
+.card {
+  width: 320px;
+  margin: 30px auto;
+  padding: 25px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  text-align: center;
+  transition: 0.3s;
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/*  Inputs */
+input {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+/* 🎯 Buttons */
+button {
+  width: 95%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(45deg, #00c853, #64dd17);
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(45deg, #00e676, #76ff03);
+}
+
+/*  Donation List */
+#list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/*  Status Badge */
+.status {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin: 5px;
+  font-size: 12px;
+}
+
+.pending {
+  background: orange;
+}
+
+.accepted {
+  background: #00c853;
+}
+
+/* Heading */
+h3 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/*Popup Notification */
+.popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #00c853;
+  padding: 15px;
+  border-radius: 12px;
+  display: none;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+/*Small Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.card {
+  animation: fadeIn 0.5s ease-in-out;
+}

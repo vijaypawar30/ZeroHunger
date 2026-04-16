@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="navbar">Donate Food</div>
+
+<div class="card">
+  <input id="food" placeholder="Food Name">
+  <input id="qty" placeholder="Quantity">
+  <input id="location" placeholder="City">
+  <button onclick="donate()">Donate</button>
+</div>
+
+<script>
+function donate() {
+	  const data = {
+	    food: document.getElementById("food").value,
+	    quantity: document.getElementById("qty").value,
+	    location: document.getElementById("location").value
+	  };
+
+	  console.log(data); 
+
+	  fetch("/donate", {
+	    method: "POST",
+	    headers: {"Content-Type": "application/json"},
+	    body: JSON.stringify(data)
+	  })
+	  .then(() => alert("Donation Added"));
+	}
+</script>
+
+</body>
+</html>
